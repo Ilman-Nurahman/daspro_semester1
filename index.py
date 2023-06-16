@@ -1,2 +1,3 @@
-print('ilman push');
-print('ilman nurahman');
+print('ilman push')
+print('ilman nurahman')
+print('kocak')
