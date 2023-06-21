@@ -1,55 +1,76 @@
-menu = ['makanan','minuman', 'dessert'];
-category_food = ['Chicken Lada Hitam', 'Nasi Gila', 'Chicken Crispy'];
-food_price = [16000, 17000, 15000];
+class Kafe:
+    def __init__(self):
+        self.menu = {}
 
-category_drink = ['Vanila Oreo', 'Taro Cheese', 'Green Tea'];
-food_price = [16000, 17000, 15000];
+    def tambah_menu(self, nama, harga):
+        self.menu[nama] = harga
 
-category_dessert = ['Ice Cream', 'Pisang Coklat', 'Roti Bakar'];
-food_price = [16000, 17000, 15000];
+    def hapus_menu(self, nama):
+        del self.menu[nama]
 
-list_pesanan = [];
-quantity_pesanan = [];
-harga_item = [];
+    def tampilkan_menu(self):
+        print("Menu Kafe:")
+        for nama, harga in self.menu.items():
+            print(f"{nama}: Rp {harga}")
 
-print('===========================================================');
-print('Selamat Datang di kedai Spontan');
-print('===========================================================');
-print('1. ', menu[0]);
-print('2. ', menu[1]);
-print('3. ', menu[2]);
-print('===========================================================');
+    def hitung_total(self, pesanan):
+        total = 0
+        for item in pesanan:
+            menu, quantity = item.split(":")
+            menu = menu.strip()
+            quantity = int(quantity.strip())
+            if menu in self.menu:
+                total += self.menu[menu] * quantity
+            else:
+                print(f"Menu '{menu}' tidak tersedia.")
+        return total
 
-pilihan1 = input('Pilih Menu berdasarkan angka : ');
+    def proses_pembayaran(self, total_harga):
+        while True:
+            uang_pembayaran = float(input("Masukkan jumlah uang pembayaran: "))
+            if uang_pembayaran >= total_harga:
+                kembalian = uang_pembayaran - total_harga
+                print(f"Uang kembalian: Rp {kembalian:.2f}")
+                break
+            else:
+                print("Jumlah uang pembayaran kurang. Silakan coba lagi.")
 
-def pilihanStep1():
-    return pilihan1;
 
-def pilihMenu(params, type):
-    if params == '1' :
-        if type == 'step1':
-            for a in range(0, len(category_food)):
-                print(a+1, category_food[a]);
-            stringMenu = 'Makanan';
-            return stringMenu;
-        else:
-            print('aldi');
-    elif params == '2' :
-        for a in range(0, len(category_drink)):
-            print(a+1, category_drink[a]);
-        stringMenu = 'Minuman';
-        return stringMenu;
+kafe = Kafe()
+
+# Menambahkan menu
+kafe.tambah_menu("Kopi", 10000)
+kafe.tambah_menu("Teh", 8000)
+kafe.tambah_menu("Roti", 15000)
+kafe.tambah_menu("Susu", 12000)
+
+while True:
+    print("=== Kasir Kafe ===")
+    print("1. Tampilkan Menu")
+    print("2. Tambah Menu")
+    print("3. Hapus Menu")
+    print("4. Proses Pesanan")
+    print("0. Keluar")
+    pilihan = int(input("Masukkan pilihan Anda: "))
+
+    if pilihan == 0:
+        print("Terima kasih!")
+        break
+    elif pilihan == 1:
+        kafe.tampilkan_menu()
+    elif pilihan == 2:
+        nama = input("Masukkan nama menu: ")
+        harga = int(input("Masukkan harga menu: "))
+        kafe.tambah_menu(nama, harga)
+        print("Menu telah ditambahkan.")
+    elif pilihan == 3:
+        nama = input("Masukkan nama menu yang akan dihapus: ")
+        kafe.hapus_menu(nama)
+        print("Menu telah dihapus.")
+    elif pilihan == 4:
+        pesanan = input("Masukkan pesanan (format: menu:quantity,menu:quantity): ").split(",")
+        total_harga = kafe.hitung_total(pesanan)
+        print(f"Total harga: Rp {total_harga}")
+        kafe.proses_pembayaran(total_harga)
     else:
-        for a in range(0, len(category_dessert)):
-            print(a+1, category_dessert[a]);
-        stringMenu = 'Dessert';
-        return stringMenu;
-
-
-pilihan2 = input('Pilih Menu ' + pilihMenu(pilihan1, 'step1') + ' berdasarkan angka : ');
-quantity = int(input('Kuantitas : '));
-chooseCustomer = "Apakah anda ada pesanan lain klik y / n :"
-response = input(chooseCustomer);
-
-if response == pilihanStep1:
-    pilihanStep1();
+        print("Pilihan tidak valid. Silakan coba lagi!")
