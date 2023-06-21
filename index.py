@@ -20,7 +20,7 @@ print('2. ', menu[1]);
 print('3. ', menu[2]);
 print('===========================================================');
 
-pilihan1 = input('Pilih Menu berdasarkan angka, ketik 0 untuk selesai : ');
+pilihan1 = input('Pilih Menu berdasarkan angka : ');
 
 def pilihanStep1():
     return pilihan1;
