@@ -1,0 +1,67 @@
+{
+    "menu": ["makanan", "minuman", "dessert"],
+    "namaBiling": "",
+    "choose": "",
+    "choose2": "",
+    "porsi": 0,
+    "preOrder": {
+        "name": "",
+        "price": 0,
+        "portion": 0
+    },
+    "order": [],
+    "food": [
+        {
+            "name": "chicken Lada Hitam",
+            "price": 16000
+        },
+        {
+            "name": "Nasi Gila",
+            "price": 17000
+        },
+        {
+            "name": "Chicken Crispy",
+            "price": 18000
+        },
+        {
+            "name": "Cumi Bakar",
+            "price": 25000
+        }
+    ],
+    "drink": [
+        {
+            "name": "Vanila Oreo",
+            "price": 16000
+        },
+        {
+            "name": "Taro Cheese",
+            "price": 17000
+        },
+        {
+            "name": "Green Tea",
+            "price": 18000
+        },
+        {
+            "name": "Red Velvet",
+            "price": 25000
+        } 
+    ],
+    "dessert": [
+        {
+            "name": "Ice Cream",
+            "price": 16000
+        },
+        {
+            "name": "Pancong",
+            "price": 17000
+        },
+        {
+            "name": "Pisang Coklat",
+            "price": 18000
+        },
+        {
+            "name": "Roti Bakar",
+            "price": 25000
+        } 
+    ]
+}
