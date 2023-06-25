@@ -17,9 +17,6 @@ def formatrupiah(uang):
         return formatrupiah(q) + '.' + p
 
 def totalBill(list):
-    # listTotalBill = [];
-    # itemBill = list;
-    # listTotalBill.append(itemBill);
     return sum(list); 
 
 class Kasir:
@@ -172,9 +169,9 @@ class Kasir:
         print('|','Bill       : ', formatrupiah(totalBill(listTotalBill)));
         print('|','Cash       : ', formatrupiah(self.data['nominal_payment']));
         print('|','Change     : ', formatrupiah(self.data['nominal_payment'] - totalBill(listTotalBill)));
-        print('|======================================================');
+        print('=======================================================');
         print('|           TERIMA KASIH ATAS KUNJUNGAN ANDA !         ');
-        print('|======================================================');
+        print('=======================================================');
 
 def call():
     database = Kasir(data)
