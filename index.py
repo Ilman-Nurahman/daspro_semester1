@@ -2,7 +2,7 @@ import json
 import datetime
 # buka file JSON
 file_json = open("data_menu.json")
-# prsing data JSON
+# parsing data JSON
 data = json.loads(file_json.read())
 dateOrderMerge = datetime.datetime.now().strftime("%d%m%Y %H%M%S")
 dateOrderFormat = datetime.datetime.now().strftime("%d-%m-%Y %H:%M")
@@ -17,7 +17,7 @@ def formatrupiah(uang):
         return formatrupiah(q) + '.' + p
 
 def totalBill(list):
-    return sum(list); 
+    return sum(list);
 
 class Kasir:
     def __init__(self, menu):
@@ -105,20 +105,20 @@ class Kasir:
         self.data['preOrder'] = {};
         findIndexChoose = int(self.data['choose']);
         listFind = self.data['menu'][findIndexChoose-1];
-        findIndexChoose = int(self.data['choose2']);
+        findIndexChoose2 = int(self.data['choose2']);
 
         if listFind == 'makanan' :
-            listFindObject = self.data['food'][findIndexChoose-1];
+            listFindObject = self.data['food'][findIndexChoose2-1];
             self.data['preOrder']['name'] = listFindObject['name'];
             self.data['preOrder']['price'] = listFindObject['price'];
             self.data['preOrder']['portion'] = self.data['porsi'];
         elif listFind == 'minuman' :
-            listFindObject = self.data['drink'][findIndexChoose-1];
+            listFindObject = self.data['drink'][findIndexChoose2-1];
             self.data['preOrder']['name'] = listFindObject['name'];
             self.data['preOrder']['price'] = listFindObject['price'];
             self.data['preOrder']['portion'] = self.data['porsi'];
         elif listFind == 'dessert' :
-            listFindObject = self.data['dessert'][findIndexChoose-1];
+            listFindObject = self.data['dessert'][findIndexChoose2-1];
             self.data['preOrder']['name'] = listFindObject['name'];
             self.data['preOrder']['price'] = listFindObject['price'];
             self.data['preOrder']['portion'] = self.data['porsi'];
@@ -129,7 +129,9 @@ class Kasir:
         self.data['order'].append(self.data['preOrder']);
 
     def dataCustomer(self):
+        # list kosong total bill
         listTotalBill = [];
+        # looping untuk mendapatkan total bill
         for indexOrder in range(0, len(self.data['order'])):
            list = self.data['order'][indexOrder]['price'] * self.data['order'][indexOrder]['portion'];
            listTotalBill.append(list);
@@ -141,11 +143,9 @@ class Kasir:
 
         self.data['namaBiling'] = input('Nama Pemesan : ');
         self.data['tableNumber'] = input('Nomor Meja : ');
-        self.data['nominal_payment'] = int(input('Masukan uang anda : '));
+        self.data['cash_payment'] = int(input('Masukan uang anda : '));
     
     def printStruck(self):
-        listTotalItem = [];
-        listTotalBill = [];
         # format struck pesanan (nomeja/inisial_kedai/dateandjam)
         codeStruck = self.data['tableNumber']+'CS'+dateOrderMerge;
         replaceSpasi = codeStruck.replace(" ", "");
@@ -158,6 +158,10 @@ class Kasir:
         print('|',"Customer Name : ", self.data['namaBiling']);
         print('|',"Table Number  : ", self.data['tableNumber']);
         print('=======================================================');
+        # list kosong total item dan bill
+        listTotalItem = [];
+        listTotalBill = [];
+        # looping untuk mendapatkan total item dan total bill
         for indexOrder in range(0, len(self.data['order'])):
             itemBill = self.data['order'][indexOrder]['price'] * self.data['order'][indexOrder]['portion'];
             listTotalItem.append(self.data['order'][indexOrder]['portion']);
@@ -167,8 +171,8 @@ class Kasir:
         print('=======================================================');
         print('|','Total item : ', totalItem);
         print('|','Bill       : ', formatrupiah(totalBill(listTotalBill)));
-        print('|','Cash       : ', formatrupiah(self.data['nominal_payment']));
-        print('|','Change     : ', formatrupiah(self.data['nominal_payment'] - totalBill(listTotalBill)));
+        print('|','Cash       : ', formatrupiah(self.data['cash_payment']));
+        print('|','Change     : ', formatrupiah(self.data['cash_payment'] - totalBill(listTotalBill)));
         print('=======================================================');
         print('|           TERIMA KASIH ATAS KUNJUNGAN ANDA !         ');
         print('=======================================================');
@@ -182,6 +186,7 @@ def call():
     chooseCustomer = "Apakah anda ada pesanan lain klik y / n :"
     response = input(chooseCustomer);
     if response == 'y':
+        # callback class
         call();
     else:
         database.dataCustomer()
