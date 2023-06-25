@@ -17,10 +17,10 @@ def formatrupiah(uang):
         return formatrupiah(q) + '.' + p
 
 def totalBill(list):
-    listTotalBill = [];
-    itemBill = list;
-    listTotalBill.append(itemBill);
-    return sum(listTotalBill); 
+    # listTotalBill = [];
+    # itemBill = list;
+    # listTotalBill.append(itemBill);
+    return sum(list); 
 
 class Kasir:
     def __init__(self, menu):
@@ -132,12 +132,14 @@ class Kasir:
         self.data['order'].append(self.data['preOrder']);
 
     def dataCustomer(self):
+        listTotalBill = [];
         for indexOrder in range(0, len(self.data['order'])):
            list = self.data['order'][indexOrder]['price'] * self.data['order'][indexOrder]['portion'];
-           totalBill(list);
+           listTotalBill.append(list);
+           totalBill(listTotalBill);
         
         print('|=======================================================');
-        print('| Total Bill anda adalah : ', formatrupiah(totalBill(list)));
+        print('| Total Bill anda adalah : ', formatrupiah(totalBill(listTotalBill)));
         print('|=======================================================');
 
         self.data['namaBiling'] = input('Nama Pemesan : ');
@@ -146,6 +148,7 @@ class Kasir:
     
     def printStruck(self):
         listTotalItem = [];
+        listTotalBill = [];
         # format struck pesanan (nomeja/inisial_kedai/dateandjam)
         codeStruck = self.data['tableNumber']+'CS'+dateOrderMerge;
         replaceSpasi = codeStruck.replace(" ", "");
@@ -161,13 +164,14 @@ class Kasir:
         for indexOrder in range(0, len(self.data['order'])):
             itemBill = self.data['order'][indexOrder]['price'] * self.data['order'][indexOrder]['portion'];
             listTotalItem.append(self.data['order'][indexOrder]['portion']);
+            listTotalBill.append(itemBill);
             totalItem = sum(listTotalItem);
             print('|',self.data['order'][indexOrder]['portion'],' ',self.data['order'][indexOrder]['name'],' ',formatrupiah(itemBill));
         print('=======================================================');
         print('|','Total item : ', totalItem);
-        print('|','Bill       : ', formatrupiah(totalBill(itemBill)));
+        print('|','Bill       : ', formatrupiah(totalBill(listTotalBill)));
         print('|','Cash       : ', formatrupiah(self.data['nominal_payment']));
-        print('|','Change     : ', formatrupiah(self.data['nominal_payment'] - totalBill(itemBill)));
+        print('|','Change     : ', formatrupiah(self.data['nominal_payment'] - totalBill(listTotalBill)));
         print('|======================================================');
         print('|           TERIMA KASIH ATAS KUNJUNGAN ANDA !         ');
         print('|======================================================');
