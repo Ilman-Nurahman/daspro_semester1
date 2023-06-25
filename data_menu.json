@@ -1,9 +1,11 @@
 {
     "menu": ["makanan", "minuman", "dessert"],
     "namaBiling": "",
+    "tableNumber": "",
     "choose": "",
     "choose2": "",
     "porsi": 0,
+    "nominal_payment": 0,
     "preOrder": {
         "name": "",
         "price": 0,
@@ -12,56 +14,188 @@
     "order": [],
     "food": [
         {
-            "name": "chicken Lada Hitam",
-            "price": 16000
+            "name": "Nasi Goreng Ikan Asin",
+            "price": 22000
         },
         {
-            "name": "Nasi Gila",
-            "price": 17000
-        },
-        {
-            "name": "Chicken Crispy",
+            "name": "Nasi Goreng Hijau",
             "price": 18000
         },
         {
-            "name": "Cumi Bakar",
+            "name": "Nasi Goreng Ayam",
+            "price": 20000
+        },
+        {
+            "name": "Nasi Goreng Spesial",
             "price": 25000
+        },
+        {
+            "name": "Nasi Goreng Pete",
+            "price": 25000
+        },
+        {
+            "name": "Nasi Iga Penyet",
+            "price": 25000
+        },
+        {
+            "name": "Spaghetti Marinara",
+            "price": 35000
+        },
+        {
+            "name": "Fetucinni Carbonara",
+            "price": 35000
+        },
+        {
+            "name": "Kwetiaw Goreng",
+            "price": 20000
+        },
+        {
+            "name": "Mie Aceh",
+            "price": 30000
+        },
+        {
+            "name": "Mie Goreng",
+            "price": 25000
+        },
+        {
+            "name": "Bihun Goreng",
+            "price": 25000
+        },
+        {
+            "name": "Bakmi Jawa Goreng",
+            "price": 25000
+        },
+        {
+            "name": "Mie Godog",
+            "price": 25000
+        },
+        {
+            "name": "Pizza Mie",
+            "price": 33000
         }
     ],
     "drink": [
         {
-            "name": "Vanila Oreo",
-            "price": 16000
-        },
-        {
-            "name": "Taro Cheese",
-            "price": 17000
-        },
-        {
-            "name": "Green Tea",
+            "name": "Cappucino/Latte",
             "price": 18000
         },
         {
-            "name": "Red Velvet",
+            "name": "Milk Coffee",
+            "price": 20000
+        },
+        {
+            "name": "Americano",
+            "price": 30000
+        },
+        {
+            "name": "Soda Gembira",
+            "price": 18000
+        },
+        {
+            "name": "Mochacino",
+            "price": 20000
+        },
+        {
+            "name": "Taro Cheese",
+            "price": 18000
+        },
+        {
+            "name": "Bubble matcha",
             "price": 25000
-        } 
+        },
+        {
+            "name": "Milk Tea",
+            "price": 25000
+        },
+        {
+            "name": "Matcha Tea",
+            "price": 25000
+        },
+        {
+            "name": "Brown Sugar",
+            "price": 20000
+        },
+        {
+            "name": "Jus Alpukat",
+            "price": 20000
+        },
+        {
+            "name": "Jus Melon",
+            "price": 20000
+        },
+        {
+            "name": "Jus Mangga",
+            "price": 15000
+        },
+        {
+            "name": "Jus Nanas",
+            "price": 15000
+        },
+        {
+            "name": "Jus Jeruk",
+            "price": 15000
+        }
     ],
     "dessert": [
         {
-            "name": "Ice Cream",
-            "price": 16000
+            "name": "Strawberry Pudding",
+            "price": 20000
         },
         {
-            "name": "Pancong",
-            "price": 17000
+            "name": "Milk Pudding",
+            "price": 23000
+        },
+        {
+            "name": "Fruit Pudding",
+            "price": 30000
+        },
+        {
+            "name": "Mango Pudding",
+            "price": 20000
+        },
+        {
+            "name": "Papaya Pudding",
+            "price": 23000
         },
         {
             "name": "Pisang Coklat",
             "price": 18000
         },
         {
+            "name": "Ice Cream",
+            "price": 16000
+        },
+        {
+            "name": "Kue Pancong",
+            "price": 17000
+        },
+        {
             "name": "Roti Bakar",
+            "price": 15000
+        },
+        {
+            "name": "Singkong Keju",
+            "price": 20000
+        },
+        {
+            "name": "Cream Cake",
+            "price": 20000
+        },
+        {
+            "name": "Matcha Cake",
+            "price": 20000
+        },
+        {
+            "name": "Strawberry Cake",
+            "price": 22000
+        },
+        {
+            "name": "Fruit Cake",
             "price": 25000
-        } 
+        },
+        {
+            "name": "Mango Cake",
+            "price": 20000
+        }
     ]
 }
